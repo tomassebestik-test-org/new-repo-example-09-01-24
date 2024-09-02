@@ -1,3 +1,4 @@
+---
 # new-repo-example-09-01-24/.github/workflows/pre-commit.yml
 name: Pre-commit checks
 
@@ -5,8 +6,8 @@ on:
   pull_request:
 
 jobs:
-  call-pre-commit:  # reusable from org level
-    uses: tomassebestik-test-org/.github/.github/workflows/reusable-pre-commit.yml@main
-      # with:
-      #   python-version: '3.9'  # Optionally override Python version
-      #   skip: 'some-other-hook'  # Optionally override the SKIP variable with a different value    # No 'skip' input needed, default 'pip-compile' will be used
+  call-pre-commit:
+    uses: tomassebestik-test-org/.github/workflows/reusable-pre-commit.yml@master
+    # with:
+    #   python-version: '3.9'  # Optionally override Python version
+    #   skip: 'some-other-hook'  # Optionally override the SKIP variable with a different value
