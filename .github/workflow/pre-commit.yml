@@ -7,7 +7,7 @@ on:
 
 jobs:
   call-pre-commit:
-    uses: tomassebestik-test-org/.github/workflows/reusable-pre-commit.yml@master
+    uses: tomassebestik-test-org/.github/.github/workflows/reusable-pre-commit.yml@master
     # with:
     #   python-version: '3.9'  # Optionally override Python version
     #   skip: 'some-other-hook'  # Optionally override the SKIP variable with a different value
