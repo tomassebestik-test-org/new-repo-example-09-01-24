@@ -1,0 +1,12 @@
+---
+name: Pre-commit checks
+
+on:
+  pull_request:
+
+jobs:
+  call-pre-commit:
+    uses: tomassebestik-test-org/.github/.github/workflows/reusable-pre-commit.yml@master
+    with:
+      python-version: '3.12'  # Optionally override Python version
+      skip: 'codespell,mdformat'  # Optionally override the SKIP variable with a different value

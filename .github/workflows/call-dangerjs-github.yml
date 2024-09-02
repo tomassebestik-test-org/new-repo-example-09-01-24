@@ -1,0 +1,33 @@
+---
+name: DangerJS Pull Request Linter
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  call-dangerjs-linter:
+    uses: tomassebestik-test-org/.github/.github/workflows/reusable-dangerjs-github.yml@master
+    with:
+      ref: ${{ github.event.pull_request.head.sha }}
+      # rule-description: 'true'
+      # rule-commit-messages: 'true'
+      # rule-size-lines: 'true'
+      # rule-source-branch: 'true'
+      # rule-target-branch: 'true'
+      # rule-max-commits: 'true'
+      # commit-messages-types: 'feat,fix,docs,style,refactor,test,chore'
+      # commit-messages-max-body-line-length: '100'
+      # commit-messages-max-summary-length: '72'
+      # commit-messages-min-summary-length: '20'
+      # description-ignore-sections: 'related,release,breaking'
+      # max-size-lines: '500'
+      # max-commits-info: '3'
+      # max-commits-warn: '5'
+      # instructions-contributions-file: 'CONTRIBUTING.md'
+      # instructions-gitlab-mirror: 'true'
+      # instructions-cla-link: 'https://example.com/cla'
