@@ -1,8 +1,7 @@
 ---
-# Run `pre-commit autoupdate` to update to the latest pre-commit hooks version.
 minimum_pre_commit_version: 3.3.0 # Specifies the minimum version of pre-commit required for this configuration
 default_install_hook_types: [pre-commit, commit-msg] # Default hook types to install if not specified in individual hooks
-default_stages: [commit]
+default_stages: [pre-commit]
 
 repos:
   - repo: meta
@@ -24,6 +23,7 @@ repos:
     rev: v1.10.0
     hooks:
       - id: conventional-precommit-linter # Lints commit messages for conventional format
+        stages: [commit-msg]
 
   - repo: https://github.com/codespell-project/codespell
     rev: v2.3.0
@@ -49,3 +49,14 @@ repos:
         args:
           - --base64-limit=4 # Level of entropy for base64 type strings
           - --hex-limit=3 # Level of entropy for hex strings
+
+  - repo: https://github.com/lyz-code/yamlfix/
+    rev: 1.17.0
+    hooks:
+      - id: yamlfix
+
+  - repo: https://github.com/espressif/cz-plugin-espressif
+    rev: v1.0.1
+    hooks:
+      - id: update-changelog
+        files: ^pyproject\.toml$  # Runs only if file with version changes
